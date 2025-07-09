@@ -70,16 +70,35 @@ export default function TesteCulpa() {
         </>
       ) : (
         <>
-          <h2 className="text-xl font-semibold mb-4">결과: {resultado}</h2>
-          {resultado === "녹색" && <p>죄책감을 매우 잘 관리하고 있으며 정서적으로 안정된 상태입니다. 다른 사람들에게 큰 도움이 될 수 있습니다.</p>}
-          {resultado === "황색" && <p>해결이 필요한 정서적 어려움의 신호가 나타납니다. 의지와 도움을 통해 충분히 극복할 수 있습니다.</p>}
-          {resultado === "적색" && <p>이 주제와 관련된 죄책감 문제가 심각하여 전문적인 도움이 필요합니다. 가능한 빨리 의사나 심리 전문가를 찾으십시오.</p>}
+          
+          <h2 className="text-xl font-semibold mb-4 text-center">결과: {resultado}</h2>
+          <img
+            src={
+              resultado === "녹색"
+                ? "/images/semaforo-verde.png"
+                : resultado === "황색"
+                ? "/images/semaforo-amarelo.png"
+                : "/images/semaforo-vermelho.png"
+            }
+            alt={`신호등 표시: ${resultado}`}
+            className="w-40 h-auto mx-auto mb-4"
+          />
+          {resultado === "녹색" && (
+            <p className="text-center">이 주제에 매우 잘 대처하고 있으며 정서적으로 안정된 상태입니다. 다른 사람들을 도울 수 있는 능력이 있습니다.</p>
+          )}
+          {resultado === "황색" && (
+            <p className="text-center">해결이 필요한 정서적 어려움의 분명한 신호가 있습니다. 의지와 도움을 통해 극복할 수 있습니다.</p>
+          )}
+          {resultado === "적색" && (
+            <p className="text-center">이 주제와 관련된 정서적 문제가 전문적인 도움이 필요합니다. 가능한 빨리 의사나 심리 전문가를 찾으십시오.</p>
+          )}
           <button
-            className="mt-4 px-4 py-2 bg-green-500 dark:bg-green-600 text-white rounded hover:bg-green-600 dark:hover:bg-green-700"
+            className="mt-6 px-4 py-2 bg-green-500 dark:bg-green-600 text-white rounded hover:bg-green-600 dark:hover:bg-green-700 block mx-auto"
             onClick={reiniciarTeste}
           >
             테스트 다시 하기
           </button>
+    
         </>
       )}
     </div>
